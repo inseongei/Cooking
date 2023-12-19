@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import styled from "styled-components";
-import loginImage from "../asset/LoginImage.png";
+import loginimage from "../asset/loginimage.png";
 export default function Login() {
   return (
     <>
@@ -9,7 +9,7 @@ export default function Login() {
       <Container>
         <div className="container">
           <div className="image-container">
-            <img src={loginImage} alt="사진" className="login-image" />
+            <img src={loginimage} alt="사진" className="login-image" />
           </div>
           <div className="login-container">
             <div className="login-box">
@@ -36,6 +36,14 @@ const Container = styled.div`
   width: 100%;
   height: 90vh;
 
+  .input-box input:focus {
+    border: 1px solid #ffd700;
+  }
+
+  .input-box input::placeholder {
+    font-size: 0.8rem;
+  }
+
   .input-box {
     display: flex;
     flex-direction: column;
@@ -59,15 +67,15 @@ const Container = styled.div`
     border: none;
     font-weight: 700;
     min-height: 44px;
-    transition: all 0.2s ease 0s;
     width: 50%;
     padding: 0px 15px;
     border-radius: 5px;
     margin-top: 10px;
+    font-size: 80%;
     background-color: #ffd700;
   }
   .input-box button:hover {
-    background: #ff8e00;
+    background-color: yellow;
   }
 
   .login-image {
@@ -95,7 +103,7 @@ const Container = styled.div`
 
   .login-box {
     width: 100%;
-    height: 70%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,16 +121,64 @@ const Container = styled.div`
     text-align: center;
     font-weight: 700;
     color: #516c50;
+    font-size: 1rem;
   }
 
   .create {
     text-align: center;
     margin: 10px;
     cursor: pointer;
-    color: #516c50;
+    color: #0f360e;
+    opacity: 0.8;
+    font-size: 1rem;
   }
 
   .create:hover {
-    font-weight: 700;
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      border: none;
+    }
+
+    .image-container {
+      display: none;
+    }
+
+    .login-container {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .input-box input {
+      width: 75%;
+    }
+
+    .input-box button {
+      width: 75%;
+    }
+
+    .input-box button:hover {
+      background-color: #ffd700;
+    }
+
+    .input-box input:focus {
+      border: 1px solid rgb(229, 229, 229);
+    }
+
+    .login-box p {
+      font-size: 0.7rem;
+    }
+
+    .create {
+      font-size: 0.8rem;
+    }
+
+    .create:hover {
+      opacity: 0.8;
+    }
   }
 `;
