@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import styled from "styled-components";
 import loginimage from "../asset/loginimage.png";
+import { Link } from "react-router-dom";
 export default function Login() {
   return (
     <>
@@ -20,7 +21,9 @@ export default function Login() {
                 <input type="password" placeholder="패스워드를 입력해주세요." />
                 <button>로그인</button>
               </div>
-              <div className="create">계정 만들러 가기</div>
+              <Link to="/SignUp">
+                <div className="create">계정 만들러 가기</div>
+              </Link>
             </div>
           </div>
         </div>
@@ -41,7 +44,7 @@ const Container = styled.div`
   }
 
   .input-box input::placeholder {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .input-box {
@@ -60,7 +63,7 @@ const Container = styled.div`
     width: 50%;
     padding: 0px 15px;
     border-radius: 5px;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
   }
 
   .input-box button {
@@ -103,7 +106,7 @@ const Container = styled.div`
 
   .login-box {
     width: 100%;
-    height: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -137,7 +140,7 @@ const Container = styled.div`
     opacity: 1;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     .container {
       flex-direction: column;
       border: none;
@@ -167,6 +170,10 @@ const Container = styled.div`
 
     .input-box input:focus {
       border: 1px solid rgb(229, 229, 229);
+    }
+
+    .input-box input::placeholder {
+      font-size: 0.8rem;
     }
 
     .login-box p {
