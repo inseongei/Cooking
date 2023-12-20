@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Header from "../components/Header";
 import styled from "styled-components";
 import SignUpimage from "../asset/SignUpImage.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 export default function SignUp() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    nicknameRef.current.focus();
+  }, []);
+  const nicknameRef = useRef();
+  const IdRef = useRef();
+  const pwRef = useRef();
+  const pwcheckRef = useRef();
+
+  const SignUpCheck = () => {
+    Swal.fire({
+      title: "성공",
+      text: "회원가입을 완료했습니다.",
+      icon: "success",
+      confirmButtonText: "확인",
+    }).then(() => {
+      navigate("/Login");
+    });
+  };
+
   return (
     <>
       <Header />
@@ -18,8 +39,15 @@ export default function SignUp() {
               <p>맛남의 공간에 오신걸 환영합니다.</p>
               <div className="input-box">
                 <div>
-                  <span>이름</span>
-                  <input type="text" placeholder="이름을 입력해주세요." />
+                  <span>닉네임</span>
+                  <input
+                    type="text"
+                    placeholder="사용하실 이름을 입력해주세요."
+                    ref={nicknameRef}
+                    onChange={(e) =>
+                      (nicknameRef.current.value = e.target.value)
+                    }
+                  />
                 </div>
 
                 <div>
@@ -27,6 +55,7 @@ export default function SignUp() {
                   <input
                     type="email"
                     placeholder="이메일 형식으로 입력해주세요."
+                    ref={IdRef}
                   />
                 </div>
 
@@ -34,7 +63,8 @@ export default function SignUp() {
                   <span>비밀번호</span>
                   <input
                     type="password"
-                    placeholder="6글자 이상의 패스워드를 입력해주세요."
+                    placeholder="6자 이상의 패스워드를 입력해주세요."
+                    ref={pwRef}
                   />
                 </div>
 
@@ -43,15 +73,15 @@ export default function SignUp() {
                   <input
                     type="password"
                     placeholder="패스워드를 한번 더 입력해주세요."
+                    ref={pwcheckRef}
                   />
                 </div>
-
-                <div className="btn-box">
-                  <Link to="/Login" className="goBack">
-                    이전
-                  </Link>
-                  <button disabled>계정생성</button>
-                </div>
+              </div>
+              <div className="btn-box">
+                <Link to="/Login" className="goBack">
+                  이전
+                </Link>
+                <button onClick={SignUpCheck}>계정생성</button>
               </div>
             </div>
           </div>
@@ -67,6 +97,10 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   height: 90vh;
+
+  .input-box input::placeholder {
+    font-size: 0.8rem;
+  }
 
   .Sign-image {
     width: 100%;
@@ -113,12 +147,15 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .input-box span {
     display: flex;
     align-items: center;
-    margin-right: 8px;
+    justify-content: center;
+    margin-right: 15px;
+    width: 100px;
   }
 
   .input-box div {
@@ -134,6 +171,7 @@ const Container = styled.div`
     min-height: 40px;
     transition: all 0.2s ease 0s;
     width: 50%;
+    max-width: 400px;
     padding: 0px 10px;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -143,9 +181,8 @@ const Container = styled.div`
   }
 
   .btn-box button:nth-child(2) {
-    background-color: #fff;
+    background-color: #ffd700;
     border: 1px solid rgb(229, 229, 229);
-    cursor: default;
   }
 
   .goBack {
@@ -163,6 +200,10 @@ const Container = styled.div`
     justify-content: center;
   }
 
+  .btn-box {
+    display: flex;
+    justify-content: center;
+  }
   .btn-box button {
     border: none;
     font-weight: 700;
@@ -174,7 +215,35 @@ const Container = styled.div`
     font-size: 80%;
     background-color: rgb(229, 229, 229);
   }
-
   @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      border: none;
+    }
+    .image-container {
+      display: none;
+    }
+
+    .SignUpBox {
+      width: 100%;
+    }
+    .input-box input::placeholder {
+      font-size: 0.75rem;
+    }
+
+    .input-box input {
+      border: 1px solid rgb(229, 229, 229);
+      outline: none;
+      min-height: 40px;
+      transition: all 0.2s ease 0s;
+      width: 80%;
+      padding: 0px 10px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+
+    .btn-box button {
+      width: 50%;
+    }
   }
 `;
