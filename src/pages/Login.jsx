@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Header from "../components/Header";
 import styled from "styled-components";
 import loginimage from "../asset/loginimage.png";
 import { Link } from "react-router-dom";
 export default function Login() {
+  const LoginRef = useRef();
+  useEffect(() => {
+    LoginRef.current.focus();
+  }, []);
   return (
     <>
       <Header />
@@ -17,7 +21,11 @@ export default function Login() {
               <h1>Login</h1>
               <p>☺️다양한 레시피와 활동으로 요리를 즐겁게 해보세요☺️</p>
               <div className="input-box">
-                <input type="text" placeholder="아이디를 입력해주세요." />
+                <input
+                  type="text"
+                  placeholder="아이디를 입력해주세요."
+                  ref={LoginRef}
+                />
                 <input type="password" placeholder="패스워드를 입력해주세요." />
                 <button>로그인</button>
               </div>
@@ -60,7 +68,7 @@ const Container = styled.div`
     outline: none;
     min-height: 40px;
     transition: all 0.2s ease 0s;
-    width: 50%;
+    width: 70%;
     padding: 0px 15px;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -70,15 +78,13 @@ const Container = styled.div`
     border: none;
     font-weight: 700;
     min-height: 44px;
-    width: 50%;
+    width: 70%;
     padding: 0px 15px;
     border-radius: 5px;
     margin-top: 10px;
     font-size: 80%;
+    transition: all 0.3s ease 0s;
     background-color: #ffd700;
-  }
-  .input-box button:hover {
-    background-color: yellow;
   }
 
   .login-image {
@@ -140,10 +146,14 @@ const Container = styled.div`
     opacity: 1;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
     .container {
       flex-direction: column;
       border: none;
+    }
+
+    .login-box {
+      justify-content: flex-start;
     }
 
     .image-container {
@@ -164,10 +174,6 @@ const Container = styled.div`
       width: 75%;
     }
 
-    .input-box button:hover {
-      background-color: #ffd700;
-    }
-
     .input-box input:focus {
       border: 1px solid rgb(229, 229, 229);
     }
@@ -177,15 +183,15 @@ const Container = styled.div`
     }
 
     .login-box p {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
     }
 
     .create {
       font-size: 0.8rem;
     }
 
-    .create:hover {
-      opacity: 0.8;
+    .create {
+      opacity: 1;
     }
   }
 `;
