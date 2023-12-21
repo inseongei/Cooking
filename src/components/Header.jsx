@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Logo from "../asset/Logo.png";
 import { BsDoorClosed } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [menu, setMenu] = useState(false);
@@ -10,7 +11,9 @@ export default function Header() {
     <Container menu={menu.toString()}>
       <div className="header-container">
         <div className="logo">
-          <img src={Logo} alt="로고" className="logo-img" />
+          <Link to="/">
+            <img src={Logo} alt="로고" className="logo-img" />
+          </Link>
         </div>
         <ul className="Menu-list">
           <li>레시피 광장</li>
@@ -19,7 +22,9 @@ export default function Header() {
           <li className="menu-login">로그인</li>
         </ul>
         <div className="login-box">
-          <BsDoorClosed className="login-btn" />
+          <Link to="/Login">
+            <BsDoorClosed className="login-btn" />
+          </Link>
         </div>
         <GiHamburgerMenu className="Menu-icon" onClick={() => setMenu(!menu)} />
       </div>
@@ -101,7 +106,7 @@ const Container = styled.div`
       align-items: center;
       width: 100%;
       transition: all 0.2s ease 0s;
-      z-index: 1;
+      z-index: 2;
       background-color: #fff;
     }
 
