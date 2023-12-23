@@ -51,10 +51,6 @@ const Container = styled.div`
     border: 1px solid #ffd700;
   }
 
-  .input-box input::placeholder {
-    font-size: 1rem;
-  }
-
   .input-box {
     display: flex;
     flex-direction: column;
@@ -82,7 +78,6 @@ const Container = styled.div`
     padding: 0px 15px;
     border-radius: 5px;
     margin-top: 10px;
-    font-size: 80%;
     transition: all 0.3s ease 0s;
     background-color: #ffd700;
   }
@@ -130,7 +125,6 @@ const Container = styled.div`
     text-align: center;
     font-weight: 700;
     color: #516c50;
-    font-size: 1rem;
   }
 
   .create {
@@ -139,14 +133,13 @@ const Container = styled.div`
     cursor: pointer;
     color: #0f360e;
     opacity: 0.8;
-    font-size: 1rem;
   }
 
   .create:hover {
     opacity: 1;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 991px) {
     .container {
       flex-direction: column;
       border: none;
@@ -192,6 +185,20 @@ const Container = styled.div`
 
     .create {
       opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    .input-box input {
+      width: 100%;
+    }
+
+    .input-box input::placeholder {
+      font-size: 0.9rem;
+    }
+
+    .input-box button {
+      width: 100%;
     }
   }
 `;
