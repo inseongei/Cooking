@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-
+import "swiper/css/pagination";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 // image
 import Logo from "../asset/main-icon.png";
 
@@ -28,11 +29,12 @@ export default function MainItem1() {
 const Container = styled.div`
   :hover {
     .logo-image {
-      transform: translateX(50%);
+      transform: translateX(150%);
     }
   }
   width: 100%;
   height: 100%;
+  border-radius: 20px;
   background: rgb(237, 250, 247);
   display: flex;
   justify-content: center;
@@ -45,31 +47,68 @@ const Container = styled.div`
   }
 
   .padding-box {
-    padding: 30px;
     width: 80%;
     display: flex;
   }
 
   .w-title {
     font-family: "BMJUA";
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   .image-box {
     width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    flex-direction: column;
   }
 
   .logo-image {
-    width: 300px;
+    width: 30%;
     transition: transform 1.5s ease;
   }
 
   .sub-title {
     font-size: 1.3rem;
+    font-family: "BMJUA";
     margin-top: 40px;
+  }
+
+  @media screen and (max-width: 991px) {
+    .w-title {
+      font-size: 1.3rem;
+    }
+
+    .sub-title {
+      font-size: 1rem;
+    }
+
+    .image-box {
+      display: none;
+    }
+
+    .logo-image {
+      width: 20%;
+    }
+
+    .padding-box {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .wrapper {
+      width: 100%;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 520px) {
+      .w-title {
+        font-size: 0.9rem;
+      }
+
+      .sub-title {
+        display: none;
+      }
+    }
   }
 `;

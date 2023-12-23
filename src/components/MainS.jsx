@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import MainItem1 from "../item/MainItem1";
 import MainItem2 from "../item/MainItem2";
+import MainItem3 from "../item/MainItem3";
 
 export default function MainS() {
   return (
@@ -35,7 +36,9 @@ export default function MainS() {
         <SwiperSlide>
           <MainItem2 />
         </SwiperSlide>
-        <SwiperSlide></SwiperSlide>
+        <SwiperSlide>
+          <MainItem3 />
+        </SwiperSlide>
       </Swiper>
     </Container>
   );
@@ -44,12 +47,39 @@ export default function MainS() {
 const Container = styled.div`
   width: 100%;
   height: 500px;
-  margin-top: 20px;
   z-index: -1;
+  margin: 0 auto;
+  margin-top: 30px;
 
   .swiper {
-    width: 80%;
+    width: 75%;
     height: 100%;
     border-radius: 30px;
+  }
+
+  @media screen and (max-width: 991px) {
+    height: 300px;
+    .swiper {
+      width: 90%;
+      height: 100%;
+      border-radius: 30px;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    height: 100px;
+    .swiper {
+      width: 90%;
+      height: 100%;
+      border-radius: 30px;
+    }
+
+    .swiper-button-prev {
+      display: none;
+    }
+
+    .swiper-button-next {
+      display: none;
+    }
   }
 `;
