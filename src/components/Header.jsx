@@ -16,16 +16,19 @@ export default function Header() {
           </Link>
         </div>
         <ul className="Menu-list">
-          <li>레시피 광장</li>
-          <li>쿠킹 클래스</li>
-          <li>쿡 쇼핑</li>
-          <li className="menu-login">로그인</li>
+          <li className="Menu">레시피 광장</li>
+          <li className="Menu">쿠킹 클래스</li>
+          <li className="Menu">쿡 쇼핑</li>
+          <Link to="/Login" className="Menu">
+            <li className=" menu-login">로그인</li>
+          </Link>
         </ul>
         <div className="login-box">
           <Link to="/Login">
             <BsDoorClosed className="login-btn" />
           </Link>
         </div>
+
         <GiHamburgerMenu className="Menu-icon" onClick={() => setMenu(!menu)} />
       </div>
     </Container>
@@ -35,6 +38,7 @@ export default function Header() {
 const Container = styled.div`
   width: 100%;
   height: 8vh;
+  margin-bottom: 30px;
   .header-container {
     display: flex;
     justify-content: space-between;
@@ -54,7 +58,7 @@ const Container = styled.div`
     display: flex;
   }
 
-  .Menu-list li {
+  .Menu {
     padding: 15px;
     margin: 0 7px;
     border-radius: 7px;
@@ -70,11 +74,12 @@ const Container = styled.div`
   .login-box {
     width: 200px;
     margin-right: 15px;
+    display: flex;
+    justify-content: center;
   }
 
   .login-btn {
     font-size: 2rem;
-    float: right;
   }
 
   .login-btn:hover {
@@ -95,7 +100,7 @@ const Container = styled.div`
     display: none;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 991px) {
     .header-container {
       align-items: flex-start;
       flex-direction: column;
@@ -110,10 +115,7 @@ const Container = styled.div`
       background-color: #fff;
     }
 
-    .Menu-list li:nth-child(1) {
-    }
-
-    .Menu-list li {
+    .Menu {
       width: 100%;
       text-align: center;
       border-bottom: 1px solid rgb(229, 229, 229);
@@ -132,6 +134,8 @@ const Container = styled.div`
 
     .Menu-icon {
       display: block;
+      top: 5%;
+      right: 4%;
     }
 
     .menu-login {
