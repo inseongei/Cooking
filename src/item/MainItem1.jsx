@@ -103,7 +103,8 @@ const Container = styled.div`
 
     @media screen and (max-width: 520px) {
       .w-title {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        white-space: nowrap;
       }
 
       .sub-title {

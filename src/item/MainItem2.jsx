@@ -20,7 +20,7 @@ export default function MainItem2() {
           </div>
         </div>
         <div className="image-box">
-          <img src={cook} alt="선물" />
+          <img src={cook} alt="선물" className="gift" />
         </div>
       </div>
     </Container>
@@ -56,6 +56,11 @@ const Container = styled.div`
     width: 80%;
     padding: 30px;
     display: flex;
+  }
+
+  .gift {
+    width: 100%;
+    height: 100%;
   }
 
   .text-box {
@@ -125,5 +130,36 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  @media screen and (max-width: 991px) {
+    .windows {
+      display: none;
+    }
+
+    .title {
+      font-size: 1.5rem;
+    }
+  }
+  @media screen and (max-width: 520px) {
+    .image-box {
+      display: none;
+    }
+
+    .title {
+      font-size: 1rem;
+    }
+
+    .wrapper {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .text-box {
+      width: 100%;
+      text-align: center;
+      padding: 0px;
+      white-space: nowrap;
+    }
   }
 `;

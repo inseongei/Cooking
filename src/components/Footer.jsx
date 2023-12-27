@@ -53,11 +53,11 @@ const Container = styled.div`
   .box {
     width: 20%;
     height: 100%;
-    padding: 20px;
   }
 
   .logo {
     width: 200px;
+    margin-top: 20px;
   }
 
   .main-box {
@@ -69,6 +69,7 @@ const Container = styled.div`
 
   .sub-title {
     color: grey;
+    margin-bottom: 15px;
   }
 
   .frontend-box {
@@ -78,6 +79,7 @@ const Container = styled.div`
   .title {
     font-weight: 700;
     font-size: 1.2rem;
+    margin: 30px 0px 15px 0px;
   }
   .span-box {
     display: flex;
@@ -89,7 +91,7 @@ const Container = styled.div`
   }
 
   .span-box span {
-    margin: 5px;
+    margin-bottom: 15px;
   }
 
   .aws-box {
@@ -98,5 +100,47 @@ const Container = styled.div`
 
   .made-box {
     text-align: center;
+  }
+
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+
+    .box {
+      padding: 20px 20px 10px 20px;
+    }
+
+    .logo {
+      margin-bottom: 10px;
+      width: 150px;
+    }
+
+    .sub-title {
+      line-height: 1.5;
+      font-size: 1rem;
+    }
+
+    .made-box {
+      display: none;
+    }
+    .frontend-box {
+      display: none;
+    }
+    .back-box {
+      display: none;
+    }
+    .aws-box {
+      display: none;
+    }
+    .main-box {
+      width: 50%;
+      white-space: nowrap;
+    }
+    .title {
+      white-space: nowrap;
+    }
+  }
+  @media screen and (max-width: 520px) {
   }
 `;

@@ -57,17 +57,8 @@ const Container = styled.div`
     border-radius: 30px;
   }
 
-  @media screen and (max-width: 991px) {
-    height: 300px;
-    .swiper {
-      width: 90%;
-      height: 100%;
-      border-radius: 30px;
-    }
-  }
-
   @media screen and (max-width: 520px) {
-    height: 100px;
+    height: 150px;
     .swiper {
       width: 90%;
       height: 100%;

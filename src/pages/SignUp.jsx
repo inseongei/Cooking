@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import Header from "../components/Header";
 import styled from "styled-components";
 import SignUpimage from "../asset/SignUpImage.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,7 +7,6 @@ export default function SignUp() {
   const navigate = useNavigate();
   return (
     <>
-      <Header />
       <Container>
         <div className="container">
           <div className="image-container">
